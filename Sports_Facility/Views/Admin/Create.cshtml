@@ -1,0 +1,30 @@
+﻿@model Sports_Facility.Models.Facility
+@{
+    ViewData["Title"] = "Add Facility";
+}
+
+<h2>Add Facility</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label>Facility Name</label>
+        <input asp-for="FacilityName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Description</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Hourly Rate</label>
+        <input asp-for="HourlyRate" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Sport</label>
+        <select asp-for="SportId" class="form-select" asp-items="@(new SelectList(ViewBag.Sports, "SportId", "SportName"))"></select>
+    </div>
+    <div class="mb-3">
+        <label>Location</label>
+        <select asp-for="LocationId" class="form-select" asp-items="@(new SelectList(ViewBag.Locations, "LocationId", "LocationName"))"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

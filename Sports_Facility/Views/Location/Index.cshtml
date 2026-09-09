@@ -1,0 +1,21 @@
+﻿@model List<Sports_Facility.Models.Location>
+
+<h2>Locations</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var loc in Model)
+        {
+            <tr>
+                <td>@loc.LocationId</td>
+                <td>@loc.LocationName</td>
+            </tr>
+        }
+    </tbody>
+</table>

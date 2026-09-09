@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SportSlot</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="member-shell">
+        <div class="member-sidebar">
+            <div class="member-brand">SportSlot</div>
+            <div class="member-greeting">
+                <div class="member-name">Hi, @Context.Session.GetString("MemberName")</div>
+            </div>
+            <a class="member-nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="member-nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Booking" ? "active" : "")" asp-controller="Booking" asp-action="MyBookings">My Bookings</a>
+            <div style="flex:1"></div>
+            <a class="member-nav-link" asp-controller="Account" asp-action="Logout">Sign Out</a>
+        </div>
+        <div class="member-content">
+            @RenderBody()
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

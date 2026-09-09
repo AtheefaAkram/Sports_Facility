@@ -1,0 +1,18 @@
+﻿<div class="form-page-wrap">
+    <div class="form-card">
+        <h2>Member Sign In</h2>
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <form asp-action="Login" method="post">
+            <div class="form-field">
+                <label>Email</label>
+                <input name="email" type="email" />
+            </div>
+            <div class="form-field">
+                <label>Password</label>
+                <input name="password" type="password" />
+            </div>
+            <button type="submit" class="btn-form-submit">Sign In</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿<div class="form-page-wrap">
+    <div class="form-card">
+        <h2>Continue as Guest</h2>
+
+        <form asp-action="GuestLogin" method="post">
+            <div class="form-field">
+                <label>Your Name</label>
+                <input name="guestName" />
+            </div>
+            <div class="form-field">
+                <label>Your Email</label>
+                <input name="guestEmail" type="email" />
+            </div>
+            <button type="submit" class="btn-form-submit">Continue</button>
+        </form>
+    </div>
+</div>

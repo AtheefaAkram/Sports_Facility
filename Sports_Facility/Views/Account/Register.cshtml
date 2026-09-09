@@ -1,0 +1,47 @@
+﻿@model RegisterViewModel
+
+<div class="form-page-wrap">
+    <div class="form-card">
+        <h2>Member Registration</h2>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <form asp-action="Register" method="post">
+            <div class="form-field">
+                <label>Full Name</label>
+                <input asp-for="MemberName" value="@TempData["PrefillName"]" />
+            </div>
+            <div class="form-field">
+                <label>Email</label>
+                <input asp-for="Email" value="@TempData["PrefillEmail"]" />
+            </div>
+            <div class="form-field">
+                <label>Phone Number</label>
+                <input asp-for="PhoneNo" />
+            </div>
+            <div class="form-field">
+                <label>Address</label>
+                <input asp-for="Address" />
+            </div>
+            <div class="form-field">
+                <label>Password</label>
+                <input asp-for="Password" type="password" />
+            </div>
+
+            <span class="form-label-plain">Preferred Sports</span>
+            <div class="sport-pill-group">
+                @if (Model.AvailableSports != null)
+                {
+                    foreach (var sport in Model.AvailableSports)
+                    {
+                        <label class="sport-pill">
+                            <input type="checkbox" name="PreferredSportIds" value="@sport.SportId" />
+                            @sport.SportName
+                        </label>
+                    }
+                }
+            </div>
+
+            <button type="submit" class="btn-form-submit">Register</button>
+        </form>
+    </div>
+</div>

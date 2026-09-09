@@ -1,0 +1,30 @@
+﻿@model PaymentCreateViewModel
+@{
+    Layout = "_MemberLayout";
+    ViewData["Title"] = "Payment";
+}
+
+<h2 style="color:#1F2839;">Pay for: @Model.FacilityName</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-action="Create" method="post" style="max-width:400px;">
+    <input type="hidden" asp-for="BookingId" />
+
+    <div class="mb-3">
+        <label class="form-label">Amount Due</label>
+        <input value="£@Model.Amount.ToString("0.00")" class="form-control" disabled />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PaymentMethod" class="form-label">Payment Method</label>
+        <select asp-for="PaymentMethod" class="form-select">
+            <option value="">-- Select --</option>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="Cash">Cash</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn-booknow" style="border:none;">Pay Now</button>
+</form>

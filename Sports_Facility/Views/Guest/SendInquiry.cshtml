@@ -1,0 +1,21 @@
+﻿<div class="form-page-wrap">
+    <div class="form-card">
+        <h2>Send Us an Inquiry</h2>
+
+        <form asp-action="SendInquiry" method="post">
+            <div class="form-field">
+                <label>Your Name</label>
+                <input name="guestName" />
+            </div>
+            <div class="form-field">
+                <label>Your Email</label>
+                <input name="guestEmail" type="email" />
+            </div>
+            <div class="form-field">
+                <label>Message</label>
+                <textarea name="message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-form-submit">Send</button>
+        </form>
+    </div>
+</div>

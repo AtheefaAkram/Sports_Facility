@@ -1,0 +1,76 @@
+﻿@model FacilitySearchViewModel
+@{
+    Layout = "_MemberLayout";
+    ViewData["Title"] = "Find a Facility";
+}
+
+<h1 style="font-size:24px;font-weight:700;color:#1F2839;margin-bottom:4px;">Find a Facility</h1>
+<p style="color:#3A4553;margin-bottom:18px;">Book courts, pitches, and grounds near you</p>
+
+<div style="margin-bottom:12px;">
+    <a class="filter-pill @(Model.SportId == null ? "active" : "")"
+       asp-action="Index" asp-route-SportId="" asp-route-LocationId="@Model.LocationId" asp-route-Date="@Model.Date?.ToString("yyyy-MM-dd")" asp-route-Time="@Model.Time">All</a>
+    @foreach (var sport in Model.Sports)
+    {
+        <a class="filter-pill @(Model.SportId == sport.SportId ? "active" : "")"
+           asp-action="Index" asp-route-SportId="@sport.SportId" asp-route-LocationId="@Model.LocationId" asp-route-Date="@Model.Date?.ToString("yyyy-MM-dd")" asp-route-Time="@Model.Time">@sport.SportName</a>
+    }
+</div>
+
+<div style="display:flex;gap:8px;margin-bottom:16px;">
+    @for (int i = 0; i < 4; i++)
+    {
+        var day = DateTime.Today.AddDays(i);
+        var isActive = Model.Date.HasValue && Model.Date.Value.Date == day.Date;
+        <a class="date-chip @(isActive ? "active" : "")"
+           asp-action="Index" asp-route-SportId="@Model.SportId" asp-route-LocationId="@Model.LocationId" asp-route-Date="@day.ToString("yyyy-MM-dd")" asp-route-Time="@Model.Time">
+            <span class="day-label">@(i == 0 ? "Today" : day.ToString("ddd"))</span>
+            <span class="day-num">@day.Day</span>
+        </a>
+    }
+</div>
+
+<form asp-action="Index" method="get" style="display:flex;gap:10px;margin-bottom:20px;align-items:flex-end;flex-wrap:wrap;">
+    <input type="hidden" name="SportId" value="@Model.SportId" />
+    <input type="hidden" name="Date" value="@Model.Date?.ToString("yyyy-MM-dd")" />
+
+    <div style="flex:1;min-width:140px;">
+        <div style="font-size:11px;color:#8a8f98;margin-bottom:4px;">Location</div>
+        <select name="LocationId" class="form-select">
+            <option value="">Any</option>
+            @foreach (var loc in Model.Locations)
+            {
+                <option value="@loc.LocationId" selected="@(Model.LocationId == loc.LocationId)">@loc.LocationName</option>
+            }
+        </select>
+    </div>
+
+    <div style="min-width:120px;">
+        <div style="font-size:11px;color:#8a8f98;margin-bottom:4px;">Time</div>
+        <input type="time" name="Time" value="@Model.Time" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn-booknow" style="border:none;">Search</button>
+</form>
+
+<p style="font-size:12px;color:#8a8f98;margin-bottom:10px;">@Model.Results.Count facilities</p>
+
+<div style="display:flex;flex-direction:column;gap:12px;">
+    @foreach (var facility in Model.Results)
+    {
+        <div class="facility-card">
+            <div class="facility-photo" style="background-image: url('/images/facilities/facility-@(facility.FacilityId).jpg')"></div>
+            <div style="flex:1;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
+                <div>
+                    <div class="facility-tag">@facility.Sport?.SportName?.ToUpper()</div>
+                    <div style="font-size:15px;font-weight:700;color:#1F2839;margin:2px 0;">@facility.FacilityName</div>
+                    <div style="font-size:12px;color:#8a8f98;">@facility.Location?.LocationName</div>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-size:16px;font-weight:700;color:#1F2839;margin-bottom:6px;">£@facility.HourlyRate.ToString("0.00")/hr</div>
+                    <a class="btn-booknow" asp-controller="Booking" asp-action="Create" asp-route-facilityId="@facility.FacilityId">Book slot</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

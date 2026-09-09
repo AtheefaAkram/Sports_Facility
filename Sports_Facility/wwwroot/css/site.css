@@ -1,0 +1,372 @@
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+.hero-section {
+    background-image: linear-gradient(rgba(31, 40, 57, 0.72), rgba(31, 40, 57, 0.72)), url('/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 20px 70px;
+    text-align: center;
+    color: white;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+.hero-eyebrow {
+    color: #B69D74;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.hero-title {
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-subtext {
+    color: #dfe3e8;
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.program-section {
+    background: #ffffff;
+    padding: 50px 20px;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.program-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.program-card-photo {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.program-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #B69D74;
+    color: #3a2f1c;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+
+}
+
+.program-card-body {
+    padding: 18px;
+}
+
+.program-card-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #1F2839;
+    margin-bottom: 8px;
+}
+
+.program-card-desc {
+    color: #3A4553;
+    font-size: 14px;
+}
+.navbar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+    .navbar-overlay .navbar-brand,
+    .navbar-overlay .nav-link {
+        color: #F5F5EF !important;
+    }
+
+        .navbar-overlay .nav-link:hover {
+            color: #B69D74 !important;
+        }
+.member-shell {
+    display: flex;
+    min-height: 100vh;
+}
+
+.member-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-right: 1px solid #e5e5e5;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.member-brand {
+    font-weight: 700;
+    color: #1F2839;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.member-greeting {
+    padding: 8px 12px 16px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+
+.member-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2839;
+}
+
+.member-nav-link {
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #3A4553;
+    text-decoration: none;
+}
+
+    .member-nav-link:hover {
+        background: #f2f2f0;
+        color: #1F2839;
+    }
+
+    .member-nav-link.active {
+        background: #1F2839;
+        color: #F5F5EF;
+        font-weight: 600;
+    }
+
+.member-content {
+    flex: 1;
+    padding: 30px;
+    background: #fafaf8;
+}
+
+.filter-pill {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    color: #3A4553;
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .filter-pill.active {
+        background: #1F2839;
+        color: #F5F5EF;
+        border-color: #1F2839;
+    }
+
+.date-chip {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 8px 12px;
+    text-align: center;
+    min-width: 52px;
+    text-decoration: none;
+    color: #1F2839;
+}
+
+    .date-chip .day-label {
+        font-size: 10px;
+        color: #8a8f98;
+        display: block;
+    }
+
+    .date-chip.active {
+        background: #1F2839;
+        border-color: #1F2839;
+    }
+
+        .date-chip.active .day-label,
+        .date-chip.active .day-num {
+            color: #F5F5EF;
+        }
+
+.facility-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+.facility-photo {
+    width: 130px;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.facility-tag {
+    font-size: 11px;
+    color: #B69D74;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.btn-booknow {
+    background: #1F2839;
+    color: #F5F5EF !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-outline-navy {
+    background: #fff;
+    border: 1px solid #1F2839;
+    color: #1F2839 !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 17px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+}
+.form-page-wrap {
+    background: #fafaf8;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+.form-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 28px 32px;
+    max-width: 400px;
+    width: 100%;
+}
+
+    .form-card h2 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1F2839;
+        margin-bottom: 20px;
+    }
+
+.form-field {
+    margin-bottom: 14px;
+}
+
+    .form-field label {
+        font-size: 12px;
+        color: #8a8f98;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        width: 100%;
+        border: 1px solid #d8d8d8;
+        border-radius: 8px;
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+
+.form-label-plain {
+    font-size: 12px;
+    color: #8a8f98;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.sport-pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.sport-pill {
+    border: 1px solid #1F2839;
+    color: #1F2839;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+    .sport-pill input {
+        display: none;
+    }
+
+    .sport-pill:has(input:checked) {
+        background: #1F2839;
+        color: #F5F5EF;
+    }
+
+.btn-form-submit {
+    background: #1F2839;
+    color: #F5F5EF;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    border: none;
+}

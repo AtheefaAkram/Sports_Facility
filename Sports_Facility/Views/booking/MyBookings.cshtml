@@ -1,0 +1,28 @@
+﻿@model List<Booking>
+@{
+    Layout = "_MemberLayout";
+    ViewData["Title"] = "My Bookings";
+}
+
+<h2 style="color:#1F2839;margin-bottom:16px;">My Bookings</h2>
+
+<div style="display:flex;flex-direction:column;gap:12px;">
+    @foreach (var b in Model)
+    {
+        <div class="facility-card" style="padding:14px 16px;">
+            <div style="flex:1;display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                    <div style="font-weight:700;color:#1F2839;">@b.Facility?.FacilityName</div>
+                    <div style="font-size:13px;color:#8a8f98;">@b.BookingDate.ToString("d MMM yyyy") - @b.StartTime.ToString("HH:mm") to @b.EndTime.ToString("HH:mm")</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <span style="font-size:12px;padding:4px 12px;border-radius:20px;background:#eee;color:#3A4553;">@b.BookingStatus</span>
+                    @if (b.BookingStatus == "Completed")
+                    {
+                        <a class="btn-booknow" asp-controller="Review" asp-action="Create" asp-route-bookingId="@b.BookingId">Leave Review</a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>

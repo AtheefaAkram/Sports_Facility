@@ -1,0 +1,38 @@
+﻿@model List<Sports_Facility.Models.Facility>
+@{
+    ViewData["Title"] = "Admin - Facilities";
+}
+
+<h2>Manage Facilities</h2>
+<a asp-action="Create" class="btn btn-primary mb-3">Add New Facility</a>
+<form method="get" class="mb-3 d-flex gap-2">
+    <input type="text" name="search" value="@ViewBag.Search" class="form-control" placeholder="Search by facility name..." style="max-width:300px;" />
+    <button type="submit" class="btn btn-secondary">Search</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Clear</a>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Sport</th>
+            <th>Location</th>
+            <th>Rate</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td>@f.FacilityName</td>
+                <td>@f.Sport?.SportName</td>
+                <td>@f.Location?.LocationName</td>
+                <td>£@f.HourlyRate</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@f.FacilityId" class="btn btn-sm btn-secondary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@f.FacilityId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

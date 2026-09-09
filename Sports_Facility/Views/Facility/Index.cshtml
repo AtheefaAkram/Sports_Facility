@@ -1,0 +1,25 @@
+﻿@model List<Sports_Facility.Models.Facility>
+
+<h2>Facilities</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Sport</th>
+            <th>Location</th>
+            <th>Hourly Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var facility in Model)
+        {
+            <tr>
+                <td>@facility.FacilityName</td>
+                <td>@facility.Sport?.SportName</td>
+                <td>@facility.Location?.LocationName</td>
+                <td>£@facility.HourlyRate.ToString("0.00")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+﻿@model BookingCreateViewModel
+@{
+    Layout = "_MemberLayout";
+    ViewData["Title"] = "Book Facility";
+}
+
+<h2 style="color:#1F2839;">Book: @Model.FacilityName</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-action="Create" method="post" style="max-width:400px;">
+    <input type="hidden" asp-for="FacilityId" />
+
+    <div class="mb-3">
+        <label asp-for="BookingDate" class="form-label"></label>
+        <input asp-for="BookingDate" type="date" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="StartTime" class="form-label">Start Time</label>
+        <input asp-for="StartTime" type="time" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="EndTime" class="form-label">End Time</label>
+        <input asp-for="EndTime" type="time" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn-booknow" style="border:none;">Request Booking</button>
+</form>
